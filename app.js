@@ -5,6 +5,9 @@ const app = Vue.createApp({
       checkboxes: {A: false, B: false, C:false}
     };
   },
+  computed: {
+    
+  },
   methods: {
     boxSelected(box) {
       console.log(`box selected - ${box}`);
