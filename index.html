@@ -18,11 +18,11 @@
   <section id="assignment">
     <!-- 1) Fetch the user input and use it as a CSS class -->
     <!-- The entered class should be added to the below paragraph -->
-    <input @change="updateUserClass" type="text" />
+    <input v-model="inputClass" type="text" />
     <br>
     <br>
     <!-- (available classes: "user1", "user2") -->
-    <p :class="['foo', {user1: user1}, {user2: user2}, {hidden: paragraphHidden}]">
+    <p :class="[inputClass, {hidden: paragraphHidden}]">
       Style me!
     </p>
     <!-- 2) Use the "visible" and "hidden" classes to show/ hide the above paragraph -->

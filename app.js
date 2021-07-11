@@ -1,8 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
-      user1: false,
-      user2: false,
+      inputClass: '',
       paragraphHidden: false,
       paragraphBgColor: 'inherit'
     }
@@ -11,19 +10,6 @@ const app = Vue.createApp({
 
   },
   methods: {
-    updateUserClass(e) {
-      if(e.target.value === 'user1'){
-        this.user1 = true;
-        this.user2 = false;
-      } else if (e.target.value === 'user2') {
-        this.user1 = false;
-        this.user2 = true;
-      }
-      else {
-        this.user1 = false;
-        this.user2 = false;
-      }
-    },
     toggleParagraph() {
       this.paragraphHidden = !this.paragraphHidden;
     },
