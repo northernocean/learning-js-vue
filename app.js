@@ -1,30 +1,19 @@
 const app = Vue.createApp({
   data() {
     return {
-      counter: 0,
-      username: "",
-    };
+      result1: 'OUTPUT',
+      result2: 'OUTPUT'
+    }
   },
   methods: {
-    incrementCounter() {
-      this.counter++;
+    showAlert() {
+      window.alert("Clicked!");
     },
-    decrementCounter() {
-      this.counter--;
+    outputResult1(e) {
+      this.result1 = e.target.value;
     },
-    inputChanged(e) {
-      console.log(e);
-      this.username = e.target.value;
+    outputResult2(e) {
+      this.result2 = e.target.value;
     },
-    inputUpdated(e) {
-      console.log(e);
-      this.username = '|' + e.target.value + '|';
-    },
-    submitForm(e) {
-      console.log(e);
-      alert("submitted");
-    },
-  },
-});
-
-app.mount('#events');
+  }
+}).mount('#assignment');
