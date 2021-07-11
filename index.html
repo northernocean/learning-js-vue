@@ -17,9 +17,9 @@
       <h1>Vue Dynamic Styling</h1>
     </header>
     <section id="styling">
-      <div class="demo"></div>
-      <div class="demo"></div>
-      <div class="demo"></div>
+      <div class="demo" class="demo" :class="{active: checkboxes.A}" @click="boxSelected('A')">{{ checkboxes.A }}</div>
+      <div class="demo" @click="boxSelected('B')">{{ checkboxes.B }}</div>
+      <div class="demo" @click="boxSelected('C')">{{ checkboxes.C }}</div>
     </section>
   </body>
 </html>
