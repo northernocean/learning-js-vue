@@ -31,7 +31,7 @@
     <br>
     <br>
     <!-- 3) Add dynamic inline styling to the below paragraph and let the user enter a background-color -->
-    <input @change="setParagraphColor" type="text" />
+    <input v-model="paragraphBgColor" type="text" />
   <p :style="{backgroundColor: paragraphBgColor}">Style me inline!</p>
   </section>
 </body>

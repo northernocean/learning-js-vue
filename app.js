@@ -3,7 +3,7 @@ const app = Vue.createApp({
     return {
       inputClass: '',
       paragraphHidden: false,
-      paragraphBgColor: 'inherit'
+      paragraphBgColor: ''
     }
   },
   computed: {
@@ -18,9 +18,6 @@ const app = Vue.createApp({
   methods: {
     toggleParagraph() {
       this.paragraphHidden = !this.paragraphHidden;
-    },
-    setParagraphColor(e) {
-      this.paragraphBgColor = e.target.value;
     }
   }
 }).mount('#assignment');
