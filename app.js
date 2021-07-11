@@ -1,19 +1,22 @@
 const app = Vue.createApp({
   data() {
     return {
-      result1: 'OUTPUT',
-      result2: 'OUTPUT'
-    }
+      counter: 0,
+      name: ''
+    };
   },
   methods: {
-    showAlert() {
-      window.alert("Clicked!");
+    setName(event, lastName) {
+      this.name = event.target.value + ' ' + lastName;
     },
-    outputResult1(e) {
-      this.result1 = e.target.value;
+    add(num) {
+      this.counter = this.counter + num;
     },
-    outputResult2(e) {
-      this.result2 = e.target.value;
-    },
+    reduce(num) {
+      this.counter = this.counter - num;
+      // this.counter--;
+    }
   }
-}).mount('#assignment');
+});
+
+app.mount('#events');
