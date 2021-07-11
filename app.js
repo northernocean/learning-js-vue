@@ -7,7 +7,13 @@ const app = Vue.createApp({
     }
   },
   computed: {
-
+    paraClasses() {
+      return {
+        user1: this.inputClass === 'user1',
+        user2: this.inputClass === 'user2',
+        hidden: this.paragraphHidden
+      };
+    }
   },
   methods: {
     toggleParagraph() {
