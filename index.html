@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="/assets/vue.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -22,8 +22,10 @@
       <button @click="addGoal">Add Goal</button>
       <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
       <ul v-else>
-        <li>Goal</li>
+        <li v-for="(goal, index) in goals" @click="removeGoal(index)">
+          {{ goal }}
+        </li>
       </ul>
     </section>
   </body>
-</html>
+</html> 
