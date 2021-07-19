@@ -37,20 +37,9 @@ export default {
       default: false
     }
   },
-  //emits: ['toggle-favorite',], // a more simple way of documenting what custom events are emitted
-  // below is a more complex way which can also validate the event...
-  emits: {
-    'toggle-favorite': function(id) {
-      // this is a validation function for the toggle-favorite event
-      if(id) {
-        return true;
-      }
-      else {
-        console.log('Id is missing');
-        return false;
-      }
-    },
-    },
+  emits: [
+    'toggle-favorite',
+  ],
   data() {
     return {
       detailsAreVisible: false,
