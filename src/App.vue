@@ -5,7 +5,6 @@
       :text="activeTopic && activeTopic.fullText"
     ></active-element>
     <knowledge-base
-      :topics="topics"
       @select-topic="activateTopic"
     ></knowledge-base>
   </div>
