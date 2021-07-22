@@ -1,5 +1,5 @@
 <template>
-  <div class="foo">
+  <div>
     <slot></slot>
   </div>
 </template>
@@ -9,7 +9,7 @@
 </script>
 
 <style scoped>
-  div.foo {
+  div {
     margin: 2rem auto;
     max-width: 30rem;
     border-radius: 12px;

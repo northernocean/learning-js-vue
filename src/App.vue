@@ -15,12 +15,14 @@
 import TheHeader from './components/TheHeader.vue';
 import BadgeList from './components/BadgeList.vue';
 import UserInfo from './components/UserInfo.vue';
+import BaseCard from './components/BaseCard.vue';
 
 export default {
   components: {
     'the-header': TheHeader,
     'badge-list': BadgeList,
     'user-info': UserInfo,
+    'base-card': BaseCard,
   },
   data() {
     return {

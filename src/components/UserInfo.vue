@@ -1,6 +1,6 @@
 <template>
   <base-card>
-    <div class="foo">
+    <div>
       <h3>{{ fullName }}</h3>
       <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
       <p>{{ infoText }}</p>
