@@ -1,22 +1,12 @@
 <template>
-  <ul>
-    <li v-for="resource in storedResources" :key="resource.id">
-      <resource-card
-        :title="resource.title"
-        :description="resource.id"
-      ></resource-card>
-    </li>
-  </ul>
   <stored-resources :resources="storedResources"></stored-resources>
 </template>
 
 <script>
-import ResourceCard from './components/ResourceCard.vue';
 import StoredResources from './components/learning-resources/StoredResources.vue';
 
 export default {
   components: {
-    'resource-card': ResourceCard,
     'stored-resources': StoredResources,
   },
   data() {
