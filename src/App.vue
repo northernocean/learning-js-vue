@@ -1,33 +1,28 @@
 <template>
-  <main-header title="RememberMe"></main-header>
-  <the-resources></the-resources>
+  <the-form></the-form>
 </template>
 
 <script>
-import MainHeader from './components/layouts/MainHeader.vue';
-import TheResources from './components/learning-resources/TheResources.vue';
+import TheForm from './components/TheForm.vue';
 
 export default {
   components: {
-    'main-header': MainHeader,
-    'the-resources': TheResources,
-  },
-};
+    TheForm
+  }  
+}
 </script>
 
-<style scoped>
-li {
-  margin: 0.5rem;
-  list-style-type: none;
-}
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+<style>
 * {
   box-sizing: border-box;
 }
+
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: sans-serif;
 }
+
 body {
   margin: 0;
+  background-color: #292929;
 }
 </style>
