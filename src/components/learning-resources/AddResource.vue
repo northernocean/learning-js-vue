@@ -13,6 +13,11 @@
           name="description"
           rows="3"
         ></textarea>
+        <div class="form-control">
+          <label for="link">Link</label>
+          <input type="url" id="link" name="link" />
+        </div>
+        <base-button type="submit">Add Resource</base-button>
       </div>
     </form>
   </base-card>
