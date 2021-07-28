@@ -2,11 +2,12 @@
   <form @submit.prevent="submitForm">
     <div class="form-control">
       <label for="user-name">Your Name</label>
-      <input id="user-name" name="user-name" type="text" v-model="userName" />
+      <input id="user-name" name="user-name" type="text" v-model="userName" @blur="validateInput">
+      <p class="invalid" v-if="invalidUserNameEntered === true">Please enter a valid name!</p>
     </div>
     <div class="form-control">
       <label for="age">Your Age (Years)</label>
-      <input id="age" name="age" type="number" v-model="userAge" />
+      <input id="age" name="age" type="number" v-model="userAge">
     </div>
     <div class="form-control">
       <label for="referrer">How did you hear about us?</label>
@@ -107,6 +108,7 @@ export default {
       interests: [],
       learnBy: null,
       termsAgreed: false,
+      invalidUserNameEntered: null,
     };
   },
   methods: {
@@ -121,6 +123,13 @@ export default {
       console.log('termsAgreed: ', this.termsAgreed);
       console.log('-------------------');
     },
+    validateInput() {
+      if(this.userName?.trim() === ''){
+        this.invalidUserNameEntered = true;
+      } else {
+        this.invalidUserNameEntered = false;
+      }
+    }
   },
 };
 </script>
@@ -138,6 +147,10 @@ form {
 
 .form-control {
   margin: 0.5rem 0;
+}
+
+.form-control .invalid {
+  color: red;
 }
 
 label {
@@ -181,6 +194,7 @@ button {
   cursor: pointer;
   padding: 0.75rem 2rem;
   border-radius: 30px;
+  margin-top: 1rem;
 }
 
 button:hover,
