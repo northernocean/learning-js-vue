@@ -24,4 +24,5 @@
 </template>
 
 <style scoped>
+  @import url('./css/AddResource.css');
 </style>
