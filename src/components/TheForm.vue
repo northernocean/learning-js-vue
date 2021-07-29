@@ -131,6 +131,12 @@ export default {
       console.log('learnBy: ', this.learnBy);
       console.log('rating: ', this.rating);
       console.log('termsAgreed: ', this.termsAgreed);
+      this.userName = null
+      this.age = null;
+      this.referrer = null;
+      this.learnBy = null;
+      this.rating = null;
+      this.termsAgreed = false;
       console.log('-------------------');
     },
     validateInput() {

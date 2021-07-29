@@ -20,10 +20,15 @@
 export default {
   props: ['modelValue'],
   emits: ['update:modelValue'],
-  data() {
-    return {
-      activeRatingOption: this.modelValue,
-    };
+  // data() {
+  //   return {
+  //     activeRatingOption: this.modelValue,
+  //   };
+  // },
+  computed: {
+    activeRatingOption() {
+      return this.modelValue;
+    }, 
   },
   methods: {
     setActiveRatingOption(option) {
