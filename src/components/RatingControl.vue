@@ -1,14 +1,14 @@
 <template>
   <ul>
-    <li :class="{ active: activeRatingOption === 'poor' }">
+    <li :class="{ active: modelValue === 'poor' }">
       <button type="button" @click="setActiveRatingOption('poor')">Poor</button>
     </li>
-    <li :class="{ active: activeRatingOption === 'average' }">
+    <li :class="{ active: modelValue === 'average' }">
       <button type="button" @click="setActiveRatingOption('average')">
         Average
       </button>
     </li>
-    <li :class="{ active: activeRatingOption === 'great' }">
+    <li :class="{ active: modelValue === 'great' }">
       <button type="button" @click="setActiveRatingOption('great')">
         Great
       </button>
@@ -20,16 +20,6 @@
 export default {
   props: ['modelValue'],
   emits: ['update:modelValue'],
-  // data() {
-  //   return {
-  //     activeRatingOption: this.modelValue,
-  //   };
-  // },
-  computed: {
-    activeRatingOption() {
-      return this.modelValue;
-    }, 
-  },
   methods: {
     setActiveRatingOption(option) {
       this.activeRatingOption = option;
