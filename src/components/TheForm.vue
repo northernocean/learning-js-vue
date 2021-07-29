@@ -7,7 +7,7 @@
     </div>
     <div class="form-control">
       <label for="age">Your Age (Years)</label>
-      <input id="age" name="age" type="number" v-model="userAge">
+      <input id="age" name="age" type="number" v-model="age">
     </div>
     <div class="form-control">
       <label for="referrer">How did you hear about us?</label>
@@ -84,6 +84,9 @@
       </div>
     </div>
     <div>
+      <rating-control v-model="rating"></rating-control>
+    </div>
+    <div>
       <input
         id="terms-agreement"
         name="terms-agreement"
@@ -99,7 +102,12 @@
 </template>
 
 <script>
+import RatingControl from './RatingControl.vue';
+
 export default {
+  components: {
+    RatingControl,
+  },
   data() {
     return {
       userName: '',
@@ -107,6 +115,7 @@ export default {
       referrer: null,
       interests: [],
       learnBy: null,
+      rating: null,
       termsAgreed: false,
       invalidUserNameEntered: null,
     };
@@ -120,6 +129,7 @@ export default {
       console.log('referrer: ', this.referrer);
       console.log('interests: ', this.interests);
       console.log('learnBy: ', this.learnBy);
+      console.log('rating: ', this.rating);
       console.log('termsAgreed: ', this.termsAgreed);
       console.log('-------------------');
     },
@@ -129,7 +139,7 @@ export default {
       } else {
         this.invalidUserNameEntered = false;
       }
-    }
+    },
   },
 };
 </script>
