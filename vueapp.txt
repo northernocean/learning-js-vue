@@ -1,4 +1,0 @@
-vue backend:
-firebase
-warbling-potatoes
-https://warbling-potatoes-default-rtdb.firebaseio.com/
