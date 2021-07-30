@@ -7,7 +7,8 @@
           >Load Submitted Experiences</base-button
         >
       </div>
-      <p v-if="loadingSurveyData">Loading Survey Results...</p>
+      <p v-if="errorMessageFromFetchAPI">Error retrieving survey results.</p>
+      <p v-if="results.length == 0">No Survey results to show.</p>
       <ul v-else>
         <survey-result
           v-for="result in results"
@@ -31,26 +32,34 @@ export default {
   data() {
     return {
       results: [],
-      loadingSurveyData: false,
+      errorMessageFromFetchAPI: '',
     };
   },
   methods: {
     loadExperiences() {
+      this.errorMessageFromFetchAPI = '';
       fetch(
         'https://friendly-moss-feathers-default-rtdb.firebaseio.com/survey_data.json'
-      ).then(response => {
-        response.json().then((data) => {
-          this.loadingSurveyData = true;
-          this.results.length = 0;
-          Object.values(data).forEach((item) => this.results.push(item));
-          this.loadingSurveyData = false;
+      )
+        .then((response) => {
+          if (response.ok) {
+            response.json().then((data) => {
+              this.results.length = 0;
+              Object.values(data).forEach((item) => this.results.push(item));
+            });
+          } else {
+            this.errorMessageFromFetchAPI = `Error fetching survey results (status code: ${response.status})`;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.errorMessageFromFetchAPI = 'Error fetching survey results (connection failure)';
         });
-      });
     },
   },
   mounted() {
     this.loadExperiences();
-  }
+  },
 };
 </script>
 
