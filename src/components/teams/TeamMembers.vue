@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2>{{ teamId }}</h2>
+    <h2>{{ teamName }}</h2>
     <ul>
       <user-item
         v-for="member in members"
@@ -9,6 +9,7 @@
         :role="member.role"
       ></user-item>
     </ul>
+    <router-link to="/teams/t2">Go to Team 2</router-link>
   </section>
 </template>
 
@@ -16,30 +17,38 @@
 import UserItem from '../users/UserItem.vue';
 
 export default {
+  inject: ['users', 'teams'],
+  props: ['teamId'],
   components: {
     UserItem,
   },
-  inject: ['teams', 'users'],
   data() {
     return {
-      teamId: null,
+      teamName: '',
       members: [],
-      team: null,
     };
   },
+  methods: {
+    loadTeamMembers(teamId) {
+      const selectedTeam = this.teams.find((team) => team.id === teamId);
+      const members = selectedTeam.members;
+      const selectedMembers = [];
+      for (const member of members) {
+        const selectedUser = this.users.find((user) => user.id === member);
+        selectedMembers.push(selectedUser);
+      }
+      this.members = selectedMembers;
+      this.teamName = selectedTeam.name;
+    },
+  },
   created() {
-    const teamId = this.$route.params.teamId;
-    this.team = this.teams.find((team) => team.id == teamId);
-    if (this.team) {
-      const temp = this.team.members;
-      this.members.length = 0;
-      temp.forEach((item) => {
-        const found = this.users.find(user => user.id == item);
-        if (found) {
-          this.members.push(found);
-        }
-      });
-    }
+    // this.$route.path // /teams/t1
+    this.loadTeamMembers(this.teamId);
+  },
+  watch: {
+    teamId(newId) {
+      this.loadTeamMembers(newId);
+    },
   },
 };
 </script>

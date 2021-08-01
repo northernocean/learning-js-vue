@@ -13,17 +13,6 @@
   </header>
 </template>
 
-<script>
-export default {
-  emits: ['set-page'],
-  methods: {
-    setActivePage(page) {
-      this.$emit('set-page', page);
-    },
-  },
-};
-</script>
-
 <style scoped>
 header {
   width: 100%;
@@ -60,8 +49,8 @@ a {
 }
 
 a:hover,
-:active,
-a.router-link-active {
+a:active,
+a.active {
   color: #f1a80a;
   border-color: #f1a80a;
   background-color: #1a037e;
