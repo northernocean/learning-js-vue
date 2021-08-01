@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2>{{ teamName }}</h2>
+    <h2>{{ teamId }}</h2>
     <ul>
       <user-item
         v-for="member in members"
@@ -17,16 +17,29 @@ import UserItem from '../users/UserItem.vue';
 
 export default {
   components: {
-    UserItem
+    UserItem,
   },
+  inject: ['teams', 'users'],
   data() {
     return {
-      teamName: 'Test',
-      members: [
-        { id: 'u1', fullName: 'Max Schwarz', role: 'Engineer' },
-        { id: 'u2', fullName: 'Max Schwarz', role: 'Engineer' },
-      ],
+      teamId: null,
+      members: [],
+      team: null,
     };
+  },
+  created() {
+    const teamId = this.$route.params.teamId;
+    this.team = this.teams.find((team) => team.id == teamId);
+    if (this.team) {
+      const temp = this.team.members;
+      this.members.length = 0;
+      temp.forEach((item) => {
+        const found = this.users.find(user => user.id == item);
+        if (found) {
+          this.members.push(found);
+        }
+      });
+    }
   },
 };
 </script>
