@@ -45,7 +45,7 @@ dialog {
 }
 
 .modal-leave-active {
-  animation: modal 0.3s ease-out reverse;
+  animation: modal 0.3s ease-in reverse;
 }
 
 @keyframes modal {
@@ -53,9 +53,10 @@ dialog {
     opacity: 0;
     transform: translateY(-50px) scale(0.9);
   }
+
   to {
     opacity: 1;
-    transform: translateY((0) scale(1));
+    transform: translateY(0) scale(1);
   }
 }
 </style>
