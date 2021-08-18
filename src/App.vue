@@ -3,6 +3,8 @@
     <the-counter></the-counter>
     <button @click="addOne">Add 1</button>
     <change-counter></change-counter>
+    <hr>
+    <favorite-value></favorite-value>
   </base-container>
 </template>
 
@@ -10,6 +12,7 @@
 import BaseContainer from './components/BaseContainer.vue';
 import TheCounter from './components/TheCounter.vue';
 import ChangeCounter from './components/ChangeCounter.vue';
+import FavoriteValue from './components/FavoriteValue.vue';
 
 // this is bad - we have two places updating state in two different ways...
 export default {
@@ -17,6 +20,7 @@ export default {
     BaseContainer,
     TheCounter,
     ChangeCounter,
+    FavoriteValue,
   },
   methods: {
     addOne() {
