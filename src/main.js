@@ -23,12 +23,12 @@ const store = createStore({
       // using setTimeout to imitate some asynchronous operation
       setTimeout(function () {
         context.commit('increment');
-      }, 2000);
+      }, 1000);
     },
     increase(context, payload) {
       setTimeout(function () {
         context.commit('increase', payload);
-      }, 2000);
+      }, 1000);
     },
   },
   getters: {
