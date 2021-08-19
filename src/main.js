@@ -4,23 +4,7 @@ import router from './router.js';
 import App from './App.vue';
 import BaseBadge from './components/ui/BaseBadge.vue';
 
-import { createStore } from 'vuex';
-
-const store = createStore({
-  state() {
-    return {}
-  },
-  mutations: {
-
-  },
-  actions: {
-
-  },
-  getters: {
-
-  },
-});
-
+import store from './components/store/index.js';
 
 const app = createApp(App)
 
