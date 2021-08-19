@@ -11,12 +11,12 @@ export default {
       this.$store.dispatch('increase', { value: 2 });
       // Or ...
       // this.$store.commit({
-      //   type: 'increase',
+      //   type: 'counter/increase',
       //   value: 2,
       // });
     },
     */
-    ...mapActions(['increase'])
+    ...mapActions('counter', ['increase'])
   },
 };
 </script>
