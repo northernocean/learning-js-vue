@@ -1,0 +1,80 @@
+import { createStore } from 'vuex';
+
+const counterModule = {
+  namespaced: true,
+  state() {
+    return {
+      counter: 0,
+    }
+  },
+  mutations: {
+    increment(state) {
+      state.counter += 1;
+    },
+    increase(state, payload) {
+      state.counter += payload.value;
+    },
+  },
+  actions: {
+    increment(context) {
+      // using setTimeout to imitate some asynchronous operation
+      setTimeout(function () {
+        context.commit('increment');
+      }, 1000);
+    },
+    increase(context, payload) {
+      setTimeout(function () {
+        context.commit('increase', payload);
+      }, 1000);
+    },
+  },
+  getters: {
+    finalCounter(state) {
+      return state.counter * 2;
+    },
+    normalizedCounter(_, getters) {
+      const finalCounter = getters.finalCounter;
+      if (finalCounter < 0)
+        return 0;
+      if (finalCounter > 100)
+        return 100;
+      return finalCounter;
+    }
+  },
+};
+
+const store = createStore({
+  modules: {
+    counter: counterModule,
+  },
+  state() {
+    return {
+      user: '',
+    };
+  },
+  mutations: {
+    login(state, payload) {
+      state.user = payload.user;
+    },
+    logout(state) {
+      state.user = '';
+    }
+  },
+  actions: {
+    login(context, payload) {
+      context.commit('login', payload);
+    },
+    logout(context) {
+      context.commit('logout');
+    },
+  },
+  getters: {
+    isAuthenticated(state) {
+      if (state.user)
+        return true;
+      return false;
+    },
+  },
+});
+
+export default store;
