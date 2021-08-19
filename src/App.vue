@@ -1,10 +1,13 @@
 <template>
-  <base-container title="Vuex">
+  <base-container v-if="isAuthenticated" title="Vuex">
     <the-counter></the-counter>
     <button @click="addOne">Add 1</button>
     <change-counter></change-counter>
     <hr>
     <favorite-value></favorite-value>
+  </base-container>
+  <base-container title="Auth">
+    <user-auth></user-auth>
   </base-container>
 </template>
 
@@ -13,14 +16,20 @@ import BaseContainer from './components/BaseContainer.vue';
 import TheCounter from './components/TheCounter.vue';
 import ChangeCounter from './components/ChangeCounter.vue';
 import FavoriteValue from './components/FavoriteValue.vue';
+import UserAuth from './components/UserAuth.vue';
 
-// this is bad - we have two places updating state in two different ways...
+import { mapGetters } from 'vuex';
+
 export default {
   components: {
     BaseContainer,
     TheCounter,
     ChangeCounter,
     FavoriteValue,
+    UserAuth,
+  },
+  computed: {
+    ...mapGetters(['isAuthenticated'])
   },
   methods: {
     addOne() {

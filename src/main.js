@@ -8,6 +8,7 @@ const store = createStore({
   state() {
     return {
       counter: 0,
+      user: '',
     };
   },
   mutations: {
@@ -16,9 +17,21 @@ const store = createStore({
     },
     increase(state, payload) {
       state.counter += payload.value;
+    },
+    login(state, payload) {
+      state.user = payload.user;
+    },
+    logout(state) {
+      state.user = '';
     }
   },
   actions: {
+    login(context, payload) {
+      context.commit('login', payload);
+    },
+    logout(context) {
+      context.commit('logout');
+    },
     increment(context) {
       // using setTimeout to imitate some asynchronous operation
       setTimeout(function () {
@@ -32,6 +45,11 @@ const store = createStore({
     },
   },
   getters: {
+    isAuthenticated(state) {
+      if (state.user)
+        return true;
+      return false;
+    },
     finalCounter(state) {
       return state.counter * 2;
     },

@@ -6,7 +6,6 @@
 <script>
 export default {
   computed: {
-    // this is also bad ... state is being read directly...
     counter() {
       return this.$store.getters.normalizedCounter;
     },
