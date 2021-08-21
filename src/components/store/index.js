@@ -3,9 +3,19 @@ import mutations from './mutations.js';
 import actions from './actions.js';
 import getters from './getters.js';
 
+import cart from './modules/cart.js';
+import product from './modules/product.js';
 
 const store = createStore({
-  modules: {},
+  modules: {
+    cart,
+    product,
+  },
+  state() {
+    return {
+      isLoggedIn: false,
+    }
+  },
   mutations,
   actions,
   getters,
