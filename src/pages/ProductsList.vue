@@ -23,8 +23,8 @@ export default {
   },
   computed: {
     products() {
-      return this.$store.getters['product/products']
-    },
+      return this.$store.getters['prods/products'];
+    }
   }
 };
 </script>

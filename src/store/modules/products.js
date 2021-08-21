@@ -1,4 +1,4 @@
-const productStore = {
+export default {
   namespaced: true,
   state() {
     return {
@@ -10,7 +10,7 @@ const productStore = {
           title: 'Book Collection',
           description:
             'A collection of must-read books. All-time classics included!',
-          price: 99.99,
+          price: 99.99
         },
         {
           id: 'p2',
@@ -18,7 +18,7 @@ const productStore = {
             'https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/Tent_at_High_Shelf_Camp_cropped.jpg/640px-Tent_at_High_Shelf_Camp_cropped.jpg',
           title: 'Mountain Tent',
           description: 'A tent for the ambitious outdoor tourist.',
-          price: 129.99,
+          price: 129.99
         },
         {
           id: 'p3',
@@ -27,9 +27,9 @@ const productStore = {
           title: 'Food Box',
           description:
             'May be partially expired when it arrives but at least it is cheap!',
-          price: 6.99,
-        },
-      ],
+          price: 6.99
+        }
+      ]
     };
   },
   getters: {
@@ -38,5 +38,3 @@ const productStore = {
     }
   }
 };
-
-export default productStore;
